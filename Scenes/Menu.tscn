@@ -1,0 +1,199 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Fonts/911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Styles/CheckButton.tres" type="StyleBox" id=3]
+[ext_resource path="res://Styles/CheckButtonPressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scripts/MenuSounds.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/Bumpo.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.482353, 0.670588, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.196078, 0.458824, 0.905882, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/win_cup.png-45f6dbb9cb9ec0bfa8bf528218fdb3f0.stex"
+
+[sub_resource type="DynamicFont" id=4]
+size = 58
+use_filter = true
+extra_spacing_top = -8
+extra_spacing_bottom = -8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0.407843, 0.0666667, 1 )
+font_data = ExtResource( 6 )
+
+[node name="MenuScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -188.0
+margin_right = 197.0
+margin_bottom = 68.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="text" type="Label" parent="ScorePanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -145.06
+margin_top = 18.0594
+margin_right = 144.94
+margin_bottom = 56.0594
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "WELCOME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScorePanel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -46.0
+margin_bottom = 46.0
+custom_constants/separation = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="CenterContainer" parent="ScorePanel/VBoxContainer"]
+margin_right = 396.0
+margin_bottom = 92.0
+size_flags_stretch_ratio = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScorePanel/VBoxContainer/HighScore"]
+margin_left = 76.0
+margin_right = 320.0
+margin_bottom = 92.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="icon" type="TextureRect" parent="ScorePanel/VBoxContainer/HighScore/HBoxContainer"]
+modulate = Color( 1, 0.933333, 0.164706, 1 )
+margin_top = 6.0
+margin_right = 80.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScorePanel/VBoxContainer/HighScore/HBoxContainer"]
+margin_left = 84.0
+margin_right = 244.0
+margin_bottom = 92.0
+
+[node name="Score" type="Label" parent="ScorePanel/VBoxContainer/HighScore/HBoxContainer/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 56.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "40466"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="ScorePanel/VBoxContainer/HighScore/HBoxContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 160.0
+margin_bottom = 92.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HIGH SCORE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="ScorePanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = 19.0
+margin_right = 128.0
+margin_bottom = 115.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="ScorePanel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ScorePanel/Button" to="Sounds" method="_on_Button_pressed"]

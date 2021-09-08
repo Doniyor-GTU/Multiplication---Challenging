@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Animations/ScoreGain.tres" type="Animation" id=1]
+[ext_resource path="res://Animations/ScoreLose.tres" type="Animation" id=2]
+[ext_resource path="res://Fonts/Bumpo.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/ScoreGainTextEffect.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 25
+outline_size = 2
+outline_color = Color( 0.0785539, 0.866667, 0.0117647, 1 )
+use_filter = true
+extra_spacing_top = 4
+font_data = ExtResource( 3 )
+
+[node name="ScoreGainTextEffect" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -19.5998
+margin_top = -15.1453
+margin_right = 20.4003
+margin_bottom = 14.8547
+custom_fonts/font = SubResource( 1 )
+text = "+1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ScoreGain = ExtResource( 1 )
+anims/ScoreLose = ExtResource( 2 )

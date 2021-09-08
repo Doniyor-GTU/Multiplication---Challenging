@@ -1,0 +1,515 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Fonts/911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/pause_screen.gd" type="Script" id=2]
+[ext_resource path="res://Styles/CheckButton.tres" type="StyleBox" id=3]
+[ext_resource path="res://Styles/CheckButtonPressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://Art/light.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/Bumpo.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Art/win_cup.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/GameOverSceneSounds.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.482353, 0.670588, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.196078, 0.458824, 0.905882, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0.407843, 0.0666667, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.760784, 0.105882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.407843, 0.0666667, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+shadow_color = Color( 0.0156863, 0.160784, 0.0352941, 0.721569 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 8 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_top = 6.0
+bg_color = Color( 0.0108032, 0.691406, 0.105526, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.407843, 0.0666667, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color( 0.0156863, 0.160784, 0.0352941, 0.721569 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0.407843, 0.0666667, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 75
+use_filter = true
+extra_spacing_top = -13
+extra_spacing_bottom = -11
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=12]
+flags = 4
+load_path = "res://.import/win_cup.png-45f6dbb9cb9ec0bfa8bf528218fdb3f0.stex"
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+use_filter = true
+extra_spacing_top = -8
+extra_spacing_bottom = -8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 18
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0.760784, 0.105882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.407843, 0.0666667, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+shadow_color = Color( 0.0156863, 0.160784, 0.0352941, 0.721569 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 8 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+content_margin_top = 6.0
+bg_color = Color( 0.0108032, 0.691406, 0.105526, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.407843, 0.0666667, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color( 0.0156863, 0.160784, 0.0352941, 0.721569 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 2 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0.407843, 0.0666667, 1 )
+font_data = ExtResource( 6 )
+
+[node name="pause_screen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverPanel_NewScore" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -280.0
+margin_right = 204.0
+margin_bottom = 134.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="text" type="Label" parent="GameOverPanel_NewScore"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -145.0
+margin_top = 14.0
+margin_right = 145.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "CONGRATULATIONS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Cup_icon" type="Control" parent="GameOverPanel_NewScore"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = 194.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shine" type="TextureRect" parent="GameOverPanel_NewScore/Cup_icon"]
+modulate = Color( 1, 0.976471, 0.717647, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = -142.0
+margin_right = 110.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 220, 220 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="TextureRect" parent="GameOverPanel_NewScore/Cup_icon"]
+modulate = Color( 1, 0.933333, 0.164706, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -75.0
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="GameOverPanel_NewScore"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 68.5
+margin_bottom = 155.5
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="GameOverPanel_NewScore/HighScore"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -6.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "New High Score"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GameOverPanel_NewScore"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 112.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 5 )
+text = "Replay"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button2" type="Button" parent="GameOverPanel_NewScore"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -132.0
+margin_top = 128.0
+margin_right = 131.0
+margin_bottom = 224.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
+text = "Leaderboard"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.0
+margin_top = -237.0
+margin_right = 197.0
+margin_bottom = 60.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="text" type="Label" parent="GameOverPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -145.06
+margin_top = 18.0594
+margin_right = 144.94
+margin_bottom = 56.0594
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -77.0
+margin_bottom = 113.0
+custom_constants/separation = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentScore" type="Label" parent="GameOverPanel/VBoxContainer"]
+margin_right = 396.0
+margin_bottom = 69.0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "4920"
+align = 1
+valign = 1
+
+[node name="Title" type="Label" parent="GameOverPanel/VBoxContainer/CurrentScore"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -198.0
+margin_top = 1.0
+margin_right = 198.0
+margin_bottom = 33.0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Score"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="CenterContainer" parent="GameOverPanel/VBoxContainer"]
+margin_top = 129.0
+margin_right = 396.0
+margin_bottom = 190.0
+size_flags_stretch_ratio = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverPanel/VBoxContainer/HighScore"]
+margin_left = 116.0
+margin_right = 280.0
+margin_bottom = 61.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="icon" type="TextureRect" parent="GameOverPanel/VBoxContainer/HighScore/HBoxContainer"]
+modulate = Color( 1, 0.933333, 0.164706, 1 )
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel/VBoxContainer/HighScore/HBoxContainer"]
+margin_left = 54.0
+margin_right = 164.0
+margin_bottom = 61.0
+
+[node name="Score" type="Label" parent="GameOverPanel/VBoxContainer/HighScore/HBoxContainer/VBoxContainer"]
+margin_right = 110.0
+margin_bottom = 34.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "40466"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="GameOverPanel/VBoxContainer/HighScore/HBoxContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 110.0
+margin_bottom = 61.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HIGH SCORE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GameOverPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 112.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 5 )
+text = "Replay"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button2" type="Button" parent="GameOverPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -131.0
+margin_top = 128.0
+margin_right = 132.0
+margin_bottom = 224.0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/normal = SubResource( 15 )
+custom_fonts/font = SubResource( 17 )
+text = "Leaderboard"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[connection signal="new_high_score" from="." to="Sounds" method="_on_pause_screen_new_high_score"]
+[connection signal="old_high_score" from="." to="Sounds" method="_on_pause_screen_old_high_score"]
+[connection signal="pressed" from="GameOverPanel_NewScore/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOverPanel_NewScore/Button" to="Sounds" method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOverPanel_NewScore/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="GameOverPanel_NewScore/Button2" to="Sounds" method="_on_Button2_pressed"]
+[connection signal="pressed" from="GameOverPanel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOverPanel/Button" to="Sounds" method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOverPanel/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="GameOverPanel/Button2" to="Sounds" method="_on_Button2_pressed"]

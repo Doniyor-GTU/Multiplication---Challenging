@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Art/heart.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/heart.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.321591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+spread = 100.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 0.42
+angular_velocity = 88.89
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 14.81
+radial_accel = 20.0
+damping = 20.0
+scale = 7.0
+scale_curve = SubResource( 2 )
+color = Color( 0.945098, 0.227451, 0.176471, 1 )
+
+[node name="Control" type="Control"]
+rect_min_size = Vector2( 46, 46 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="heart" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -23.0
+margin_right = 23.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 46, 46 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 23, 23 )
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.68
+process_material = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
